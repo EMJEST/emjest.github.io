@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos | VADY</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ====== HEADER SIMILAR AL INDEX ====== -->
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html">VADY</a>
+        </div>
+
+        <nav class="menu">
+            <a href="index.html">Inicio</a>
+            <a href="lugares.html">Lugares</a>
+            <a href="eventos.html">Eventos</a>
+            <a href="#contacto">Descubre más</a>
+        </nav>
+    </header>
+
+    <!-- ====== ENCABEZADO ====== -->
+    <section class="eventos-top">
+        <h1>Eventos del Municipio</h1>
+        <p>Explora las celebraciones, fiestas y actividades culturales.</p>
+    </section>
+
+    <!-- ====== BUSCADOR ====== -->
+    <div class="eventos-search-box">
+        <input type="text" id="searchEventos" placeholder="Buscar evento...">
+        <span class="eventos-search-icon">🔍</span>
+    </div>
+
+    <!-- ====== GRID DE EVENTOS ====== -->
+    <section class="eventos-container">
+
+        <!-- EVENTO 1 -->
+        <a href="evento-plantilla.html" class="evento-item" data-name="Festival de la Pesca">
+            <img src="img/evento1.jpg" alt="Festival de la Pesca">
+            <div class="evento-item-info">
+                <h3>Festival de la Pesca</h3>
+                <p>Celebración tradicional con gastronomía y actividades culturales.</p>
+            </div>
+        </a>
+
+        <!-- EVENTO 2 -->
+        <a href="evento-plantilla.html" class="evento-item" data-name="Feria Tradicional">
+            <img src="img/evento2.jpg" alt="Feria Tradicional">
+            <div class="evento-item-info">
+                <h3>Feria Tradicional</h3>
+                <p>Evento anual con juegos, comida y música en vivo.</p>
+            </div>
+        </a>
+
+        <!-- EVENTO 3 -->
+        <a href="evento-plantilla.html" class="evento-item" data-name="Día del Pueblo">
+            <img src="img/evento3.jpg" alt="Día del Pueblo">
+            <div class="evento-item-info">
+                <h3>Día del Pueblo</h3>
+                <p>Desfile, música y actividades para toda la familia.</p>
+            </div>
+        </a>
+
+        <!-- EVENTO 4 -->
+        <a href="evento-plantilla.html" class="evento-item" data-name="Encuentro Cultural">
+            <img src="img/evento4.jpg" alt="Encuentro Cultural">
+            <div class="evento-item-info">
+                <h3>Encuentro Cultural</h3>
+                <p>Muestras artísticas, danza y exposición de artesanías.</p>
+            </div>
+        </a>
+
+    </section>
+
+    <!-- ====== SCRIPT DEL BUSCADOR ====== -->
+    <script>
+        const searchEventos = document.getElementById("searchEventos");
+        const eventoCards = document.querySelectorAll(".evento-item");
+
+        searchEventos.addEventListener("input", () => {
+            const filtro = searchEventos.value.toLowerCase();
+
+            eventoCards.forEach(card => {
+                const nombre = card.dataset.name.toLowerCase();
+                card.style.display = nombre.includes(filtro) ? "block" : "none";
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre del Evento | VADY</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="lightbox.css"> <!-- Galería profesional -->
+</head>
+
+<body>
+
+    <!-- ================== HEADER ================== -->
+    <header class="evento-header">
+        <h1 class="evento-title">Nombre del Evento</h1>
+    </header>
+
+    <!-- ================== HERO / PRESENTACIÓN ================== -->
+    <section class="evento-hero">
+        <div class="evento-hero-card">
+            <img src="img/evento-principal.jpg" alt="Imagen del evento">
+        </div>
+    </section>
+
+    <!-- ================== DESCRIPCIÓN ================== -->
+    <section class="evento-descripcion">
+        <h2>Descripción del Evento</h2>
+        <p>
+            Aquí escribes toda la información del evento: historia, actividades, fechas,
+            dónde se realiza, horarios, importancia, recomendaciones, etc.
+        </p>
+    </section>
+
+    <!-- ================== GALERÍA ================== -->
+    <section class="evento-galeria">
+        <h2>Galería</h2>
+
+        <div class="galeria-grid">
+
+            <!-- FOTO 1 -->
+            <a href="img/evento-foto1.jpg" data-lightbox="galeria" data-title="Descripción opcional">
+                <img src="img/evento-foto1.jpg" alt="">
+            </a>
+
+            <!-- FOTO 2 -->
+            <a href="img/evento-foto2.jpg" data-lightbox="galeria" data-title="">
+                <img src="img/evento-foto2.jpg" alt="">
+            </a>
+
+            <!-- VIDEO 1 -->
+            <a href="videos/evento-video1.mp4" data-lightbox="galeria" data-title="Video del evento" class="video-thumb">
+                <video src="videos/evento-video1.mp4"></video>
+            </a>
+
+        </div>
+    </section>
+
+    <script src="lightbox.js"></script>
+</body>
+</html>

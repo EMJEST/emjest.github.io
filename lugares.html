@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lugares | VADY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER (igual al index) -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <div class="brand">
+        <a href="index.html" class="logo">VADY</a>
+        <span class="tag">Explora tu municipio</span>
+      </div>
+
+      <button class="menu-btn">☰</button>
+
+      <nav class="site-nav">
+        <a href="index.html">Inicio</a>
+        <a href="lugares.html" class="active">Lugares</a>
+        <a href="index.html#features">Descubre más</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero small-hero">
+    <div class="hero-inner container">
+      <h1>Lugares del Municipio</h1>
+      <p class="hero-sub">Explora todas las localidades, pueblos y comunidades</p>
+    </div>
+  </section>
+
+  <!-- BUSCADOR -->
+  <section class="intro">
+    <div class="container">
+      <h2>Buscar localidad</h2>
+      <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Buscar localidad...">
+    <span class="search-icon">🔍</span>
+</div>
+  </section>
+
+  <!-- GRID DE LOCALIDADES -->
+  <section class="localidades">
+    <div class="container">
+      <h2>Localidades</h2>
+
+      <div id="localidadesGrid" class="grid localidades-grid">
+
+        <!-- EJEMPLO DE 10 LOCALIDADES. Puedes cambiarlas -->
+        <a class="card localidad-card" data-name="Pueblo A" href="pueblo-a.html">
+          <div class="card-media"><img src="imagenes/pueblo-a.jpg" alt="Pueblo A"></div>
+          <div class="card-body">
+            <h3>Pueblo A</h3>
+          </div>
+        </a>
+
+        <a class="card localidad-card" data-name="Ejido B" href="localidades/ejido-b.html">
+          <div class="card-media"><img src="imagenes/ejido-b.jpg" alt="Ejido B"></div>
+          <div class="card-body">
+            <h3>Ejido B</h3>
+          </div>
+        </a>
+
+        <a class="card localidad-card" data-name="Ranchería C" href="localidades/rancheria-c.html">
+          <div class="card-media"><img src="imagenes/rancheria-c.jpg" alt="Ranchería C"></div>
+          <div class="card-body">
+            <h3>Ranchería C</h3>
+          </div>
+        </a>
+
+        <a class="card localidad-card" data-name="Comunidad D" href="localidades/comunidad-d.html">
+          <div class="card-media"><img src="imagenes/comunidad-d.jpg" alt="Comunidad D"></div>
+          <div class="card-body">
+            <h3>Comunidad D</h3>
+          </div>
+        </a>
+
+        <a class="card localidad-card" data-name="Villa E" href="localidades/villa-e.html">
+          <div class="card-media"><img src="imagenes/villa-e.jpg" alt="Villa E"></div>
+          <div class="card-body">
+            <h3>Villa E</h3>
+          </div>
+        </a>
+
+        <a class="card localidad-card" data-name="Pueblo F" href="localidades/pueblo-f.html">
+          <div class="card-media"><img src="imagenes/pueblo-f.jpg" alt="Pueblo F"></div>
+          <div class="card-body">
+            <h3>Pueblo F</h3>
+          </div>
+        </a>
+
+        <a class="card localidad-card" data-name="Ranchito G" href="localidades/ranchito-g.html">
+          <div class="card-media"><img src="imagenes/ranchito-g.jpg" alt="Ranchito G"></div>
+          <div class="card-body">
+            <h3>Ranchito G</h3>
+          </div>
+        </a>
+
+        <a class="card localidad-card" data-name="Sector H" href="localidades/sector-h.html">
+          <div class="card-media"><img src="imagenes/sector-h.jpg" alt="Sector H"></div>
+          <div class="card-body">
+            <h3>Sector H</h3>
+          </div>
+        </a>
+
+        <a class="card localidad-card" data-name="Barrio I" href="localidades/barrio-i.html">
+          <div class="card-media"><img src="imagenes/barrio-i.jpg" alt="Barrio I"></div>
+          <div class="card-body">
+            <h3>Barrio I</h3>
+          </div>
+        </a>
+
+        <a class="card localidad-card" data-name="Zona J" href="localidades/zona-j.html">
+          <div class="card-media"><img src="imagenes/zona-j.jpg" alt="Zona J"></div>
+          <div class="card-body">
+            <h3>Zona J</h3>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> VADY — Promoviendo lo mejor de nuestro municipio</p>
+    </div>
+  </footer>
+
+  <script>
+    // Año automático
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Menú móvil
+    document.querySelector(".menu-btn").addEventListener("click", () => {
+      document.querySelector(".site-nav").classList.toggle("open");
+    });
+
+    // BUSCADOR DE LOCALIDADES
+    const searchInput = document.getElementById("searchInput");
+    const cards = document.querySelectorAll(".localidad-card");
+
+    searchInput.addEventListener("input", () => {
+      const filter = searchInput.value.toLowerCase();
+
+      cards.forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        card.style.display = name.includes(filter) ? "block" : "none";
+      });
+    });
+  </script>
+
+</body>
+</html>

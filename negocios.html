@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nombre del Negocio • VADY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <div class="brand">
+        <a href="../index.html" class="logo">VADY</a>
+        <span class="tag">Explora tu municipio</span>
+      </div>
+      <button class="menu-btn">☰</button>
+      <nav class="site-nav">
+        <a href="../index.html">Inicio</a>
+        <a href="../localidades/pueblo-a.html">Localidad</a>
+        <a href="../contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container" style="padding:28px 0">
+      <div class="card" style="display:block">
+        <div class="card-media"><img src="../imagenes/negocio-ejemplo/1.jpg" alt="Negocio"></div>
+        <div class="card-body">
+          <h1>Nombre del Negocio</h1>
+          <p class="muted">Categoría • Dirección • Teléfono</p>
+          <p style="margin-top:12px">Breve descripción del negocio, servicios y horarios.</p>
+
+          <!-- Contacto directo -->
+          <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap">
+            <!-- Cambia el número (521...) por el del negocio -->
+            <a class="btn btn-whatsapp" href="https://wa.me/521000000000?text=Hola%20quiero%20informaci%C3%B3n%20sobre%20Nombre%20del%20Negocio" target="_blank" rel="noopener">Contactar por WhatsApp</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=19.000000,-92.000000" target="_blank" rel="noopener">Ver en Maps</a>
+          </div>
+
+          <!-- Reseñas -->
+          <section style="margin-top:20px">
+            <h3>Reseñas</h3>
+            <div id="reviews">
+              <!-- Las reseñas se pueden cargar dinámicamente (más adelante con JS) -->
+              <p class="muted">Aún no hay reseñas. Sé el primero en opinar.</p>
+            </div>
+
+            <!-- Formulario simple para enviar reseña (local, sin backend) -->
+            <form id="review-form" style="margin-top:12px">
+              <label>Tu nombre</label><br>
+              <input type="text" id="r-name" style="padding:8px;border-radius:6px;border:1px solid #ddd;width:100%;max-width:360px"><br><br>
+              <label>Tu reseña</label><br>
+              <textarea id="r-text" rows="3" style="padding:8px;border-radius:6px;border:1px solid #ddd;width:100%;max-width:560px"></textarea><br><br>
+              <label>Puntuación</label><br>
+              <select id="r-score" style="padding:8px;border-radius:6px;border:1px solid #ddd">
+                <option value="5">5 - Excelente</option>
+                <option value="4">4 - Muy bien</option>
+                <option value="3">3 - Bueno</option>
+                <option value="2">2 - Regular</option>
+                <option value="1">1 - Malo</option>
+              </select><br><br>
+              <button type="submit" class="btn btn-primary">Enviar reseña</button>
+            </form>
+          </section>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>© <span id="year">2025</span> VADY</p></div>
+  </footer>
+
+  <script src="../script.js"></script>
+
+  <!-- Pequeño script local para añadir reseñas en el cliente (temporal) -->
+  <script>
+    // Manejo simple de reseñas en memoria (solo local)
+    const form = document.getElementById('review-form');
+    const reviewsDiv = document.getElementById('reviews');
+
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('r-name').value || 'Anon';
+      const text = document.getElementById('r-text').value || '';
+      const score = document.getElementById('r-score').value;
+      if (!text.trim()) return alert('Escribe una reseña');
+      const node = document.createElement('div');
+      node.style.borderTop = '1px solid #eee';
+      node.style.padding = '10px 0';
+      node.innerHTML = `<strong>${name}</strong> • ${score} ⭐<p style="margin-top:6px">${text}</p>`;
+      // Insertar arriba
+      reviewsDiv.prepend(node);
+      // Limpiar formulario
+      form.reset();
+    });
+  </script>
+</body>
+</html>
